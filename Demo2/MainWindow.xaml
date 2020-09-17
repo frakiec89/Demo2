@@ -1,0 +1,41 @@
+﻿<Window x:Class="Demo2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="93*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="449*"/>
+            <ColumnDefinition Width="193*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1">
+                           
+            <TextBox  HorizontalContentAlignment="Center" 
+                      Margin="10,0,0,10"  Name="tbLog"/>
+            <Label  HorizontalAlignment="Center"  
+                    Content="Логин"/>
+            <TextBox HorizontalContentAlignment="Center" 
+                     Margin="10,0,0,10" Name="tbPass"/>
+            <Label HorizontalAlignment="Center"  
+                   Content="Пароль"/>
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Margin="10,10,10,10" 
+                    Content="Войти" 
+                        Height="35" x:Name="btInAdmin" Click="btInAdmin_Click" />
+                <Button Height="35" Content="Войти как гость" 
+                    x:Name="btIn" Click="btIn_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
