@@ -101,5 +101,26 @@ namespace Demo2.Forms
             lbServis.ItemsSource = null;
             lbServis.ItemsSource = servisController.ServisViews;
         }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var s = servisController.ServisViews.Where(t => t.Title.ToUpper().StartsWith(tbSearch.Text.ToUpper()));
+            lbServis.ItemsSource = s;
+
+        }
+
+        private void btUp_Click(object sender, RoutedEventArgs e)
+        {
+            var s = servisController.ServisViews.OrderBy(x => x.Title);
+            lbServis.ItemsSource = s;
+        }
+
+       
+
+        private void btDn_Click(object sender, RoutedEventArgs e)
+        {
+            var s = servisController.ServisViews.OrderByDescending(x => x.Title);
+            lbServis.ItemsSource = s;
+        }
     }
 }

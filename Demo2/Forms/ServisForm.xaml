@@ -82,5 +82,14 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,15,0,0" >
+            
+        <TextBox x:Name="tbSearch" Height="20" TextChanged="tbSearch_TextChanged"/>
+            <Label Content="Поиск" HorizontalAlignment="Center"/>
+            <Button x:Name="btUp" Content="По возрастанию"  Click="btUp_Click"/>
+            <Button x:Name="btDn" Content="По возрастанию" Click="btDn_Click" />
+
+        </StackPanel>
     </Grid>
 </Window>
