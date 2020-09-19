@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Demo2.BL.ModelView
 {
-    public  class ServisView
+    public  class ServisView 
     {
         public string Title { get; set; }
 
@@ -20,6 +20,18 @@ namespace Demo2.BL.ModelView
 
         public string MainImagePath { get; set; }
 
+        /// <summary>
+        /// Поля  для сортировки     по  цене 
+        /// </summary>
+        public decimal CostSort { get; set; }
+        /// <summary>
+        /// Поля  для сортировки  по  скидке 
+        /// </summary>
+        public double DiscountSort { get; set; }
+
+
+
+
         public ServisView(DB.Service service)
         {
             Title = service.Title;
@@ -28,6 +40,25 @@ namespace Demo2.BL.ModelView
             DurationInSeconds = GetDurationInSeconds(service);
             Discount = GetDiscount(service);
             MainImagePath = service.MainImagePath;
+
+            CostSort = GetCostSort(service);
+
+            if (service.Discount != null && service.Discount > 0)
+                DiscountSort = service.Discount.Value;
+            else
+                DiscountSort = 0;
+
+        }
+
+        private decimal GetCostSort(Service service)
+        {
+            if (service.Discount != null && service.Discount > 0)
+            {
+                decimal s = service.Cost - service.Cost * Convert.ToDecimal(service.Discount);
+                return Math.Round(s, 0);
+            }
+
+            return Math.Round(service.Cost, 0);
         }
 
         private string GetDiscount(Service service)

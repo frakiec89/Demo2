@@ -89,7 +89,10 @@
             <Label Content="Поиск" HorizontalAlignment="Center"/>
             <Button x:Name="btUp" Content="По возрастанию"  Click="btUp_Click"/>
             <Button x:Name="btDn" Content="По возрастанию" Click="btDn_Click" />
-
+            <Button x:Name="btDnCost" Content="По убыванию стоимости" Click="btDnCost_Click" />
+            <Button x:Name="btUpCost" Content="По возрастанию стоимости" Click="btUpCost_Click" />
+            <Button x:Name="btUpDiscount" Content="По скидке" Click="btUpDiscount_Click" />
+           
         </StackPanel>
     </Grid>
 </Window>

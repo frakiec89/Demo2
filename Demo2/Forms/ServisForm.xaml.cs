@@ -104,8 +104,11 @@ namespace Demo2.Forms
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var s = servisController.ServisViews.Where(t => t.Title.ToUpper().StartsWith(tbSearch.Text.ToUpper()));
-            lbServis.ItemsSource = s;
+           var s = servisController.ServisViews.Where(t => t.Title.ToUpper().StartsWith(tbSearch.Text.ToUpper())).ToList();
+            var sDop = servisController.ServisViews.Where(t => t.Title.ToUpper().Contains(tbSearch.Text.ToUpper())).ToList();
+            s.AddRange(sDop);
+            s.Distinct();
+;            lbServis.ItemsSource = s;
 
         }
 
@@ -120,6 +123,24 @@ namespace Demo2.Forms
         private void btDn_Click(object sender, RoutedEventArgs e)
         {
             var s = servisController.ServisViews.OrderByDescending(x => x.Title);
+            lbServis.ItemsSource = s;
+        }
+
+        private void btDnCost_Click(object sender, RoutedEventArgs e)
+        {
+            var s = servisController.ServisViews.OrderBy(x => x.CostSort);
+            lbServis.ItemsSource = s;
+        }
+
+        private void btUpCost_Click(object sender, RoutedEventArgs e)
+        {
+            var s = servisController.ServisViews.OrderByDescending(x => x.CostSort);
+            lbServis.ItemsSource = s;
+        }
+
+        private void btUpDiscount_Click(object sender, RoutedEventArgs e)
+        {
+            var s = servisController.ServisViews.OrderByDescending(x => x.DiscountSort);
             lbServis.ItemsSource = s;
         }
     }
