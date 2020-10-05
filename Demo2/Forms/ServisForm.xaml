@@ -32,7 +32,7 @@
             </Button.RenderTransform>
         </Button>
 
-        <ListBox  Grid.Row="1" Grid.Column="1" x:Name="lbServis" Margin="0,0.8,8,12">
+        <ListBox   Grid.Row="1" Grid.Column="1" x:Name="lbServis" Margin="0,0.8,8,12">
             <ListBox.ItemTemplate >
                 <DataTemplate >
                     <Grid Margin="2,20,20,2 ">
@@ -56,7 +56,7 @@
                                    Text="{Binding Title}" HorizontalAlignment="Center" />
 
                         <TextBlock Grid.Row="1" Grid.Column="2">
-                           <Label Content="{Binding RealCost}"/>
+                           <Label Content="{Binding RealCost}" Background="Red"/>
                            <Label Content="{Binding  DiscountCost}"/>
                            <Label Content= "{Binding DurationInSeconds}"/>
                         </TextBlock>
@@ -64,8 +64,8 @@
                         <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding  Discount}" />
 
                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2">
-                            <Button Margin="10,0,10,0" x:Name="tcChange"  Content="Редактировать" Click="tcChange_Click"/>
-                            <Button Margin="10,0,10,0" x:Name="tcDel" Content="Удалить" Click="tcDel_Click"></Button>
+                            <Button Visibility="{Binding btChange}" Margin="10,0,10,0" x:Name="tcChange"  Content="Редактировать" Click="tcChange_Click"/>
+                            <Button Visibility="{Binding btDell}" Margin="10,0,10,0" x:Name="tcDel" Content="Удалить" Click="tcDel_Click"></Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -88,7 +88,7 @@
         <TextBox x:Name="tbSearch" Height="20" TextChanged="tbSearch_TextChanged"/>
             <Label Content="Поиск" HorizontalAlignment="Center"/>
             <Button x:Name="btUp" Content="По возрастанию"  Click="btUp_Click"/>
-            <Button x:Name="btDn" Content="По возрастанию" Click="btDn_Click" />
+            <Button x:Name="btDn" Content="По убыванию " Click="btDn_Click" />
             <Button x:Name="btDnCost" Content="По убыванию стоимости" Click="btDnCost_Click" />
             <Button x:Name="btUpCost" Content="По возрастанию стоимости" Click="btUpCost_Click" />
             <Button x:Name="btUpDiscount" Content="По скидке" Click="btUpDiscount_Click" />

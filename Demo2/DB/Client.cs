@@ -11,8 +11,9 @@ namespace Demo2.DB
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Client
+    using System.ComponentModel;
+
+    public partial class Client 
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
@@ -37,5 +38,10 @@ namespace Demo2.DB
         public virtual ICollection<ClientService> ClientServices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tag> Tags { get; set; }
+
+
+        
+
+
     }
 }

@@ -25,5 +25,10 @@ namespace Demo2.DB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Clients { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

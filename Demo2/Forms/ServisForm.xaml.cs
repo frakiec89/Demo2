@@ -19,7 +19,7 @@ namespace Demo2.Forms
     /// </summary>
     public partial class ServisForm : Window
     {
-        private BL.ServisController servisController;
+        protected BL.ServisController servisController;
 
         public ServisForm()
         {
@@ -27,6 +27,8 @@ namespace Demo2.Forms
             try
             {
                 servisController = new BL.ServisController();
+                btAddServis.Visibility = Visibility.Hidden;
+                this.Title = "Гость";
             }
             catch (Exception ex)
             {
@@ -65,7 +67,6 @@ namespace Demo2.Forms
                 }
             }
         }
-
         private void tcChange_Click(object sender, RoutedEventArgs e)
         {
             var bt = e.OriginalSource as Button;
@@ -85,9 +86,7 @@ namespace Demo2.Forms
             if(add.DialogResult==true)
             Refresh();
         }
-
-
-        private void Refresh ()
+        protected virtual void Refresh ()
         {
             try
             {
@@ -118,8 +117,6 @@ namespace Demo2.Forms
             lbServis.ItemsSource = s;
         }
 
-       
-
         private void btDn_Click(object sender, RoutedEventArgs e)
         {
             var s = servisController.ServisViews.OrderByDescending(x => x.Title);
@@ -142,6 +139,37 @@ namespace Demo2.Forms
         {
             var s = servisController.ServisViews.OrderByDescending(x => x.DiscountSort);
             lbServis.ItemsSource = s;
+        }
+    }
+
+    public class  AdminServisForm : ServisForm
+    {
+        public AdminServisForm ()
+        {
+            Fisable();
+        }
+
+
+        private void Fisable()
+        {
+            foreach (var item in servisController.ServisViews)
+            {
+                item.btDell = "Visible";
+                item.btChange = "Visible";
+            }
+
+            btAddServis.Visibility = Visibility.Visible;
+            this.Title = "Админ";
+        }
+
+        protected override void Refresh()
+        {
+            base.Refresh();
+            foreach (var item in servisController.ServisViews)
+            {
+                item.btDell = "Visible";
+                item.btChange = "Visible";
+            }
         }
     }
 }

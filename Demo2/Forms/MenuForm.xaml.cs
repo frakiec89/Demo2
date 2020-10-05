@@ -22,9 +22,10 @@ namespace Demo2.Forms
         public MenuForm()
         {
             InitializeComponent();
+            this.Title = "Привет гость";
         }
 
-        private void btServis_Click(object sender, RoutedEventArgs e)
+        public virtual void btServis_Click(object sender, RoutedEventArgs e)
         {
             Forms.ServisForm servis = new ServisForm();
             servis.Show();
@@ -33,13 +34,48 @@ namespace Demo2.Forms
 
         private void btUslugi_Click(object sender, RoutedEventArgs e)
         {
-
+            Forms.ClientServiceForm servis = new ClientServiceForm();
+            servis.Show();
+            this.Close();
         }
 
 
         private void btUser_Click(object sender, RoutedEventArgs e)
         {
+            Forms.ClienrForm clienrForm = new ClienrForm();
+            clienrForm.Show();
+            this.Close();
+        }
 
+        private void btHome_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+            
+        }
+
+        private void btSetUslugi_Click(object sender, RoutedEventArgs e)
+        {
+            Forms.addClientServisForm form = new addClientServisForm();
+            form.ShowDialog();
+
+        }
+    }
+
+    public class  MenuAdmin: MenuForm
+    {
+        
+        public MenuAdmin ()
+        {
+            this.Title = "Привет  админ";
+        }
+
+        public override void btServis_Click(object sender, RoutedEventArgs e)
+        {
+            Forms.ServisForm servis = new AdminServisForm();
+            servis.Show();
+            this.Close();
         }
     }
 }

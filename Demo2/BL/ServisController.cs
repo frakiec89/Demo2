@@ -10,10 +10,9 @@ namespace Demo2.BL
     public  class ServisController
     {
         private DB.DETLT2020Entities entities;
-        
         public List<BL.ModelView.ServisView> ServisViews { get; } 
-
         public DB.Service Service { get; set; }
+
 
         public ServisController ()
         {

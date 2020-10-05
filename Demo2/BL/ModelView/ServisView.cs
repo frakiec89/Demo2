@@ -30,6 +30,8 @@ namespace Demo2.BL.ModelView
         public double DiscountSort { get; set; }
 
 
+        public string btChange { get; set; }
+        public string btDell{ get; set; }
 
 
         public ServisView(DB.Service service)
@@ -48,6 +50,9 @@ namespace Demo2.BL.ModelView
             else
                 DiscountSort = 0;
 
+
+            btChange = "Collapsed";
+            btDell = "Collapsed";
         }
 
         private decimal GetCostSort(Service service)

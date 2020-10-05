@@ -27,21 +27,33 @@ namespace Demo2
         public MainWindow()
         {
             InitializeComponent();
+
+            tbPass.Password = "admin";
+            tbPass.PasswordChar = '*';
+            tbLog.Text = "admin";
+
+           
+           
         }
 
         private void btInAdmin_Click(object sender, RoutedEventArgs e)
         {
-            Forms.MenuForm menuForm = new Forms.MenuForm();
-            menuForm.Show();
-            this.Close();
+            if (tbPass.Password == "admin" && tbLog.Text == "admin")
+            {
+                Forms.MenuForm menuForm = new Forms.MenuAdmin();
+                menuForm.Show();
+                this.Close();
+            }
         }
 
         private void btIn_Click(object sender, RoutedEventArgs e)
         {
-
+            Forms.MenuForm menuForm = new Forms.MenuForm();
+            menuForm.Show();
+            this.Close();
 
         }
-            
+
     }
     
 }

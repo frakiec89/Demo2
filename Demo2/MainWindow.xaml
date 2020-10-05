@@ -24,8 +24,10 @@
                       Margin="10,0,0,10"  Name="tbLog"/>
             <Label  HorizontalAlignment="Center"  
                     Content="Логин"/>
-            <TextBox HorizontalContentAlignment="Center" 
+
+            <PasswordBox HorizontalContentAlignment="Center" 
                      Margin="10,0,0,10" Name="tbPass"/>
+
             <Label HorizontalAlignment="Center"  
                    Content="Пароль"/>
 

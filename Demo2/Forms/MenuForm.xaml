@@ -19,15 +19,31 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel  Grid.Row="1" Grid.Column="1">
-            
-                <Button Margin="10,10,10,10" 
+
+            <Button Margin="10,10,10,10" 
                     Content="Севрис" 
                         Height="35" x:Name="btServis" Click="btServis_Click" />
-                <Button Margin="10,10,10,10"  Height="35" Content="Клиенты" 
+            <Button Margin="10,10,10,10"  Height="35" Content="Клиенты" 
                     x:Name="btUser" Click="btUser_Click"/>
-                <Button Margin="10,10,10,10"  Height="35" Content="Услуги" 
+            <Button Margin="10,10,10,10"  Height="35" Content="Услуги" 
                     x:Name="btUslugi" Click="btUslugi_Click"/>
-            
+
+            <Button Margin="10,10,10,10"  Height="35" Content="ЗАписаться на услугу" 
+                    x:Name="btSetUslugi" Click="btSetUslugi_Click"/>
         </StackPanel>
+        <Button x:Name="btHome" Content="Выход" 
+                Click="btHome_Click" Grid.Column="0" Grid.Row="0" Margin="32,31,44,10" RenderTransformOrigin="0.566,0.195"
+                
+                >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-13.097"/>
+                    <TranslateTransform X="-2.62" Y="-1.473"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
     </Grid>
 </Window>
